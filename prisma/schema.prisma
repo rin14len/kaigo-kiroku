@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model BathRecord{
+  id   Int  @id @default(autoincrement())
+  careUserId Int
+  careUserName String
+  bath  String
+  recordDate DateTime
+  createdAt  DateTime @default(now())
+}
+model NoteRecord{
+  id   Int  @id @default(autoincrement())
+  careUserId Int
+  careUserName String
+  note  String
+  recordDate DateTime
+  createdAt  DateTime @default(now())
+}
+model TrainingRecord{
+  id   Int  @id @default(autoincrement())
+  careUserId Int
+  careUserName String
+  training  String
+  recordDate DateTime
+  createdAt  DateTime @default(now())
+}
+model TransportRecord{
+  id   Int  @id @default(autoincrement())
+  careUserId Int
+  careUserName String
+  transport  String
+  recordDate DateTime
+  createdAt  DateTime @default(now())
+}
+model MealRecord{
+  id   Int  @id @default(autoincrement())
+  careUserId Int
+  careUserName String
+  stapleFood Int
+  sideDish  Int
+  recordDate DateTime
+  createdAt  DateTime @default(now())
+}
+model VitalRecord{
+  id   Int  @id @default(autoincrement())
+  careUserId Int
+  careUserName String
+  temperature Float
+  systolic Int
+  diastolic Int
+  pulse Int
+  recordDate DateTime
+  createdAt  DateTime @default(now())
+}

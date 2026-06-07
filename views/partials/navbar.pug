@@ -1,0 +1,31 @@
+nav.navbar.navbar-expand-lg.fixed-top.bg-success
+  .container-fluid
+    a.navbar-brand.text-white(href="/") 介護記録システム
+
+    .dropdown.ms-auto
+      button.btn.btn-outline-light.dropdown-toggle(
+        type="button"
+        id="menu"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      ) メニュー
+
+      ul.dropdown-menu.dropdown-menu-end(aria-labelledby="menu")
+        li
+          a.dropdown-item(href="/") home
+        li
+          a.dropdown-item(href="/transport") 送迎
+        li
+          a.dropdown-item(href="/vital") バイタル
+        li
+          a.dropdown-item(href="/meal") 食事量
+        li
+          a.dropdown-item(href="/training") トレーニング
+        li
+          a.dropdown-item(href="/bath") 入浴
+        li
+          a.dropdown-item(href="/note") 本日の様子
+        li
+          hr.dropdown-divider
+        li
+          a.dropdown-item.text-danger(href="/logout") ログアウト
