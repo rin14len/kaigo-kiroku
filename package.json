@@ -4,6 +4,11 @@
   "description": "介護記録\t",
   "main": "index.js",
   "license": "MIT",
+
+  "scripts": {
+    "start": "node index.js"
+  },
+
   "dependencies": {
     "@prisma/client": "5.13.0",
     "express": "^5.2.1",
@@ -11,5 +16,8 @@
     "http-auth-connect": "1.0.5",
     "prisma": "5.13.0",
     "pug": "^3.0.4"
+  },
+  "engines":{
+    "node":">=22"
   }
 }

@@ -528,6 +528,7 @@ app.post('/note/edit/:id',async(req,res)=>{
 });
 
 // サーバー起動
-app.listen(8000,()=>{
-  console.log('Server Start');
-} )
+const PORT = process.env.PORT || 8000
+app.listen(PORT,() =>{
+  console.log("Server Start");
+});
