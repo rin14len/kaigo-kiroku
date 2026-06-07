@@ -7,6 +7,15 @@ const prisma = new PrismaClient();
 
 
 const app = express();
+app.use((req,res,next)=>{
+  if (
+    process.env.NODE_ENV === 'production' &&
+    req.headers['x-forwarded-proto'] === 'http'
+  ){
+    return res.redirect('https://' + req.headers.host + req.url)
+  }
+  next();
+});
 app.use(express.urlencoded({extended: false}));
 
 app.set('view engine', 'pug');
