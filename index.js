@@ -473,13 +473,14 @@ app.post('/note',async(req,res)=>{
   if(!Array.isArray(activities)){
     activities = [activities];
   }
+  const memo = (req.body.memo || '').trim();
   const note=createNote(activities); 
-  const memo=req.body.memo || '';
-  const finalNote = memo
+  const finalNote = note && memo
     ? note + '\n' + memo
-    : note;
+    : note || memo;
 
-  if (userIds.length === 0 ||activities.length === 0){
+  
+  if (userIds.length === 0 ||(activities.length === 0 && memo === '')){
     const noteRecords = await prisma.noteRecord.findMany({
       orderBy:{
         createdAt:"desc"
@@ -489,7 +490,7 @@ app.post('/note',async(req,res)=>{
       users,
       noteRecords,
       getUserName,
-      errorMessage: ' ⚠ 利用者と活動を選択してください',
+      errorMessage: ' ⚠ 利用者と活動、または自由記述を入力してください',
       message: null
     })
   
